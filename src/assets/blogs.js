@@ -26,13 +26,12 @@ import MatterProblem from "/src/assets/blog-content/matterjs-design/problem-solv
 import MatterReal from "/src/assets/blog-content/matterjs-design/real-world-examples.html?raw"
 
 
-
 const blogs = [
   {
     id: 1,
     title: "Modern Glassmorphism Contact Form Using HTML & Tailwind CSS | Stylish Static Form Design",
     slug: "modern-glassmorphism-contact-form",
-    image: "/images/blog1.png",
+    image: new URL('/images/blog1.png', import.meta.url).href,
     excerpt: "In this guide, you'll learn how to build a beautiful glassmorphism-style login form using HTML, Tailwind CSS, and AOS scroll animation. This modern UI design is not only eye-catching but also responsive and smooth.",
     demo: GlassmorphismDemo, 
     content: GlassomorphismForm,
@@ -73,7 +72,7 @@ const blogs = [
     id: 2,
     title: "How to Create a Transparent Text Effect with Tailwind CSS",
     slug: "transparent-text-effect",
-    image: "/images/transparent-text.png",
+    image: new URL('/images/transparent-text.png', import.meta.url).href,
     excerpt: "This tutorial teaches you how to achieve a beautiful transparent text overlay effect on a background image using Tailwind CSS. It's lightweight, responsive, and perfect for portfolios and hero sections.",
     demo: TransparentTextDemo,
     content: TransparentText,
@@ -109,7 +108,7 @@ const blogs = [
     id: 3,
     title: "🧩 Build a Fun Drag-and-Drop Puzzle Game Using HTML, Tailwind CSS & JavaScript",
     slug: "drag-and-drop-puzzle-game",
-    image: "/images/puzzle-game.png",
+    image: new URL('/images/puzzle-game.png', import.meta.url).href,
     excerpt: "Looking for a simple yet exciting project to level up your frontend skills? This drag-and-drop puzzle game is a great way to practice your knowledge of HTML, Tailwind CSS, and JavaScript.",
     content: PuzzleGame,
     related: [
@@ -140,7 +139,7 @@ const blogs = [
     id: 3,
     title: "Crazy Neon Hover Effect on Icons",
     slug: 'icons-hover-effect',
-    image: '/images/neon-icons-cover.png',
+    image: new URL('/images/neon-icons-cover.png', import.meta.url).href,
     excerpt: "Learn how to build an interactive, glowing icon grid using Tailwind CSS and Vanilla JavaScript. Perfect for beginners looking to explore hover effects, responsive design, and Font Awesome icons.",
     content: IconsHoverEffect,
   },
@@ -149,7 +148,7 @@ const blogs = [
     id: 4,
     title: "Awesome Design Using Matter.js",
     slug: 'awesome-matterjs-design',
-    image: '/images/matterjs.png',
+    image: new URL('/images/matterjs.png', import.meta.url).href,
     excerpt: "Learn how to combine Tailwind CSS with Matter.js to build a transparent text effect over an animated physics-based background. This tutorial is perfect for beginners looking to make modern, interactive designs.",
     content: Matter,
     related: [
