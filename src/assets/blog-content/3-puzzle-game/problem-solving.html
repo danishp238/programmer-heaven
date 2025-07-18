@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game: Problem-Solving Approaches</title>
+    <link href="/src/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-violet-500 to-f font-serif">
+
+    <main>
+        <h1 class="text-center text-xl sm:text-3xl mt-8 px-4">
+            Puzzle game using javascript
+        </h1>
+
+        <article class="prose w-1/2 lg:prose-xl mx-auto p-4 text-white">
+            <h1 class="text-3xl font-bold text-center mb-4">How We Solved the Puzzle Game with JavaScript: Step-by-Step
+                Breakdown</h1>
+
+            <p>In this article, let’s break down the logic behind the drag-and-drop puzzle game you saw earlier. We’ll
+                cover the flow, thought process, and techniques used to solve real-world challenges, making it
+                beginner-friendly.</p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">🔍 Problem Overview</h2>
+            <p>The idea was to split one image into 9 pieces, shuffle them, and allow the user to drag and place each
+                piece into a drop zone. The player would solve the puzzle by rearranging the tiles in the correct grid.
+            </p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">1. 🧩 Image Splitting</h2>
+            <p>Instead of slicing the image manually, we pre-cut the image into 9 equal sections and saved them as files
+                named <code>row-1-column-1.jpg</code> and so on. This made it easy to render each image block with CSS
+                using <code>background-image</code>.</p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">2. 🔀 Shuffling the Pieces</h2>
+            <p>Using <code>appendChild</code> and <code>Math.random()</code>, we randomized the order of children inside
+                the puzzle container so each game starts differently.</p>
+
+            <pre class="bg-gray-800 overflow-x-auto text-white p-4 rounded-xl"><code>while (parent.children.length) {
+  shuffledPieces.appendChild(
+    parent.children[Math.floor(Math.random() * parent.children.length)]
+  );
+}</code></pre>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">3. 🖱️ Drag and Drop Events</h2>
+            <p>We added drag-and-drop functionality by using:</p>
+            <ul class="list-disc pl-6">
+                <li><code>ondragstart</code> to trigger dragging</li>
+                <li><code>ondrop</code> and <code>ondragover</code> to handle dropping</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">4. 🔄 Reset Button</h2>
+            <p>We added a simple button that reloads the page using <code>location.reload()</code> to reset the puzzle
+                state and reshuffle the pieces.</p>
+
+            <h2 class="text-2xl font-semibold mt-6 mb-2">🧠 Lessons Learned</h2>
+            <ul class="list-disc pl-6">
+                <li>DOM manipulation is powerful and interactive!</li>
+                <li>Drag-and-drop is beginner-friendly once you understand the event flow.</li>
+                <li>Structuring your code logically helps solve complex UI challenges step-by-step.</li>
+            </ul>
+
+            <p class="mt-6">This approach is a great base to build on for any game or interactive UI project. You can
+                now confidently tackle similar challenges using JavaScript!</p>
+        </article>
+
+
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="puzzle-game.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

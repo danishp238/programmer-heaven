@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Create an interactive drag-and-drop puzzle game using Tailwind CSS and JavaScript. Fully responsive and mobile-friendly with smooth animations and source code included." />
+
+  <meta name="keywords"
+    content="Drag and Drop Puzzle Game, Tailwind CSS Puzzle, JavaScript Puzzle Game, Interactive Grid Game, Responsive Puzzle Layout, HTML Puzzle Project, Beginner JavaScript Game, SortableJS Puzzle, Tailwind Grid Game" />
+  <title>Puzzle game using javascript</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    a {cursor: pointer;}
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-violet-500 to-f font-serif">
+
+  <main>
+    <h1 class="text-center text-3xl sm:text-4xl mt-8 px-4" data-aos="fade-up">
+      Puzzle game using javascript
+    </h1>
+
+
+    <div class="container mx-auto px-4 py-8">
+  <!-- Blog Content (responsive width) -->
+  <div class="text-lg w-full md:w-3/4 lg:w-1/2 mx-auto mb-12" v-html="blog.content" ref="htmlContainer"></div>
+  
+  <!-- Puzzle Game Container -->
+  <div class="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12">
+    <!-- Puzzle Pieces -->
+    <section
+      id="puzzle-pieces"
+      class="grid grid-cols-3 w-full max-w-[90vw] sm:max-w-[75vw] md:max-w-[50vw] lg:max-w-[30vw] aspect-square gap-2 sm:gap-3 md:gap-4"
+    ></section>
+    
+    <!-- Dropzone -->
+    <section
+      id="dropzone"
+      class="grid grid-cols-3 w-full max-w-[90vw] sm:max-w-[75vw] md:max-w-[50vw] lg:max-w-[30vw] aspect-square gap-2 sm:gap-3 md:gap-4"
+    ></section>
+  </div>
+</div>
+
+
+    <div class="text-center relative top-4 sm:bottom-20">
+      <button class="px-6 py-3 bg-emerald-400 text-white rounded-2xl" onclick="location.reload()">Reset &
+        Shuffle</button>
+    </div>
+
+    <article class="mt-16 px-4 sm:px-10 lg:px-20 max-w-5xl mx-auto text-white/90">
+
+      <h1 class="text-4xl font-bold text-center mb-6">🧩 Build a Fun Drag-and-Drop Puzzle Game Using HTML, Tailwind CSS
+        & JavaScript</h1>
+
+      <p>
+        Looking for a simple yet exciting project to level up your frontend skills? This drag-and-drop puzzle game is a
+        great way to practice your knowledge of HTML, Tailwind CSS, and JavaScript. Not only will it sharpen your DOM
+        manipulation skills, but you'll also get to see how animations, drag-and-drop events, and styling come together
+        in a real-world mini project.
+      </p>
+      <a data-router-link="drag-and-drop-puzzle-game-fun-facts" class="mt-6">
+        <p class="text-cyan-300 italic">
+          Fun Facts About Puzzle Games and Why They Boost Your Brain
+        </p>
+      </a>
+
+      <h2 class="text-2xl font-semibold mt-8">✨ What Will You Build?</h2>
+      <p>
+        You'll create a 3x3 puzzle grid, where shuffled image pieces can be dragged and dropped into the correct slots.
+        The background image is split into 9 parts, and your task is to reassemble them by dragging the pieces into the
+        correct layout.
+      </p>
+
+      <a data-router-link="drag-and-drop-puzzle-game-real-world-examples" class="mt-6">
+        <p class="text-cyan-300 italic">
+          Real-World Uses of Puzzle Logic in Tech and Business
+        </p>
+      </a>
+
+      <h2 class="text-2xl font-semibold mt-8">🧱 Project Structure</h2>
+      <p>This project contains the following files:</p>
+      <ul class="list-disc pl-6">
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm">
+          <li><code>index.html</code> – The main HTML structure</li>
+        <li><code>puzzle-game.js</code> – JavaScript logic for the game</li>
+        <li><code>/images/puzzle-image-split/</code> – Folder with 9 split puzzle images</li>
+        <li><code>/src/output.css</code> – Tailwind-generated stylesheet</li>
+      </ul>
+        </pre>
+
+
+        <h2 class="text-2xl font-semibold mt-8">🔧 How It Works: Code Explanation</h2>
+
+        <h3 class="text-xl font-semibold mt-6">📄 HTML Structure</h3>
+        <p>
+          The HTML uses Tailwind classes to set up a responsive layout, a navigation bar with a logo, and two sections:
+          one for draggable puzzle pieces and one for drop zones.
+        </p>
+
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>&lt;section class="grid grid-cols-3 grid-rows-3" id="puzzle-pieces"&gt;&lt;/section&gt;
+&lt;section class="grid grid-cols-3 grid-rows-3" id="dropzone"&gt;&lt;/section&gt;</code></pre>
+
+        <h3 class="text-xl font-semibold mt-6">🖼️ Puzzle Initialization (JavaScript)</h3>
+        <p>
+          This block dynamically creates 9 puzzle pieces and assigns them a specific part of the full image using
+          background images. Each image is draggable.
+        </p>
+
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>for (let i = 0; i &lt; 9; i++) {
+  const row = Math.floor(i / 3) + 1;
+  const column = (i % 3) + 1;
+
+  const cell = document.createElement('div');
+  cell.classList = 'bg-white/40 min-h-[100px] w-full';
+
+  const puzzleImage = document.createElement('div');
+  puzzleImage.classList = 'h-[100px] w-full bg-center bg-no-repeat bg-cover';
+  puzzleImage.setAttribute('draggable', 'true');
+  puzzleImage.setAttribute('ondragstart', 'drag(event)');
+  puzzleImage.id = `piece-${row}-${column}`;
+  puzzleImage.style.backgroundImage = `url('/images/puzzle-image-split/row-${row}-column-${column}.jpg')`;
+
+  cell.appendChild(puzzleImage);
+  puzzle_pieces.appendChild(cell);
+}</code></pre>
+
+        <h3 class="text-xl font-semibold mt-6">📦 Drop Zone Setup</h3>
+        <p>
+          The drop zone consists of empty grid cells that listen for drop events.
+        </p>
+
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>for (let i = 0; i &lt; 9; i++) {
+  const cell = document.createElement('div');
+  cell.classList = 'bg-white/40 min-h-[100px]';
+  cell.setAttribute('ondrop', 'drop(event)');
+  cell.setAttribute('ondragover', 'dropOver(event)');
+  dropzone.appendChild(cell);
+}</code></pre>
+
+        <h3 class="text-xl font-semibold mt-6">🧲 Drag-and-Drop Logic</h3>
+        <p>
+          These functions manage how pieces are picked up and placed into drop zones.
+        </p>
+
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function dropOver(event) {
+  event.preventDefault(); // Required to allow dropping
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("text/plain");
+  const draggedElement = document.getElementById(data);
+  event.target.appendChild(draggedElement);
+}</code></pre>
+
+        <h3 class="text-xl font-semibold mt-6">🔁 Shuffle Button</h3>
+        <p>
+          This button reloads the page, which triggers the puzzle pieces to be shuffled.
+        </p>
+
+        <pre
+          class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>&lt;button onclick="location.reload()"&gt;Reset &amp; Shuffle&lt;/button&gt;</code></pre>
+
+        <h2 class="text-2xl font-semibold mt-8">🌟 Final Output</h2>
+        <p>
+          When you open the HTML file in your browser, you'll see a beautiful interface with animated elements thanks to
+          the AOS library and Tailwind CSS. Drag and drop the puzzle pieces into place and challenge yourself to solve
+          the
+          picture!
+        </p>
+
+        <a data-router-link="drag-and-drop-puzzle-game-debugging" class="mt-6">
+          <p class="text-cyan-300 italic">
+            How We Solved the Puzzle Game with JavaScript: Step-by-Step Breakdown
+          </p>
+        </a>
+
+        <h2 class="text-2xl font-semibold mt-8">💻 Full Source Code</h2>
+        <p>Here's the complete code for your reference:</p>
+
+        <h3 class="text-xl font-bold mt-6">🔹 <code>index.html</code></h3>
+
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>
+&lt;div
+      class="flex justify-center items-center min-h-[70vh] mx-auto mt-10 rounded-[2rem] bg-[url('../images/puzzle-background.jpeg')] bg-cover bg-center border-4 max-w-[95%] sm:max-w-[90%] lg:max-w-[90%] px-4"
+      data-aos="fade-up" data-aos-delay="200"&gt;
+
+  &lt;div class="flex flex-col md:flex-row justify-center items-center min-h-[80vh] w-full gap-8 p-4"&gt;
+    &lt;section class="grid grid-cols-3 w-full max-w-[350px] aspect-square gap-3 sm:gap-3 md:gap-4" id="puzzle-pieces"&gt;
+    &lt;/section&gt;
+
+    &lt;section class="grid grid-cols-3 w-full max-w-[350px] aspect-square gap-2 sm:gap-3 md:gap-4" id="dropzone"&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+        <h3 class="text-xl font-bold mt-6">🔹 <code>puzzle-game.js</code></h3>
+        <pre class="bg-black/50 p-4 rounded-lg overflow-x-auto text-sm"><code>onload = function reset_puzzle () {
+  let parent = this.document.querySelector('#puzzle-pieces');
+  let shuffledPieces = this.document.createDocumentFragment();
+
+  while (parent.children.length) {
+    shuffledPieces.appendChild(parent.children[Math.floor(Math.random() * parent.children.length)]);
+  }
+
+  parent.appendChild(shuffledPieces);
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function dropOver(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("text/plain");
+  const draggedElement = document.getElementById(data);
+  event.target.appendChild(draggedElement);
+}
+
+const puzzle_pieces = document.querySelector('#puzzle-pieces');
+const dropzone = document.querySelector('#dropzone');
+
+for (let i = 0; i &lt; 9; i++) {
+  const row = Math.floor(i / 3) + 1;
+  const column = (i % 3) + 1;
+
+  const cell = document.createElement('div');
+  cell.classList = 'bg-white/40 min-h-[100px] w-full';
+
+  const puzzleImage = document.createElement('div');
+  puzzleImage.classList = 'h-[100px] w-full bg-center bg-no-repeat bg-cover';
+  puzzleImage.setAttribute('draggable', 'true');
+  puzzleImage.setAttribute('ondragstart', 'drag(event)');
+  puzzleImage.id = `piece-${row}-${column}`;
+  puzzleImage.style.backgroundImage = `url('/images/puzzle-image-split/row-${row}-column-${column}.jpg')`;
+
+  cell.appendChild(puzzleImage);
+  puzzle_pieces.appendChild(cell);
+}
+
+for (let i = 0; i &lt; 9; i++) {
+  const cell = document.createElement('div');
+  cell.classList = 'bg-white/40 min-h-[100px]';
+  cell.setAttribute('ondrop', 'drop(event)');
+  cell.setAttribute('ondragover', 'dropOver(event)');
+  dropzone.appendChild(cell);
+}</code></pre>
+
+        <h2 class="text-2xl font-semibold mt-8">📢 Final Thoughts</h2>
+        <p>
+          Puzzle games are a fantastic way to understand how events, DOM elements, and styling interact. Once you're
+          comfortable with this project, you can enhance it by adding sound effects, timer functions, or even a win
+          condition detector. Keep building, keep experimenting, and most importantly—have fun coding!
+        </p>
+
+        <a data-router-link="drag-and-drop-puzzle-game-enhancements" class="mt-6">
+          <p class="text-cyan-300 italic">
+            5 Cool Enhancements to Level Up Your Puzzle Game
+          </p>
+        </a>
+
+    </article>
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <!-- <script src="puzzle-game.js"></script> -->
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+
+</html>

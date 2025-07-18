@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Transparent Text in Tailwind</title>
+    <link href="/src/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-violet-500 to-f
+uchsia-500">
+
+
+    <main>
+        <article class="mt-16 px-4 sm:px-10 lg:px-20 max-w-5xl mx-auto text-white/90">
+  <h2 class="text-3xl font-bold mb-6">Troubleshooting Transparent Text in Tailwind: Common Issues & Fixes</h2>
+
+  <p class="mb-4">Transparent text effects look great, but getting them to work perfectly can be tricky—especially for beginners. This article walks through some common issues you might face when implementing transparent text using Tailwind CSS and how to solve them step by step.</p>
+
+  <h3 class="text-2xl font-semibold mt-6 mb-2">1. Transparent Text Doesn’t Look Transparent</h3>
+  <p class="mb-4">This is the most common issue! The text might look like a solid color instead of blending with the background image. That usually means you're missing the <code>mix-blend-mode</code> class.</p>
+  <p class="mb-4">✅ <strong>Fix:</strong> Add <code>mix-blend-overlay</code>, <code>mix-blend-multiply</code>, or <code>mix-blend-screen</code> depending on your desired effect.</p>
+
+  <h3 class="text-2xl font-semibold mt-6 mb-2">2. Text Is Hard to Read</h3>
+  <p class="mb-4">Transparent text can sometimes lose visibility depending on your background image. This is common when the image has light and dark patches.</p>
+  <p class="mb-4">✅ <strong>Fix:</strong> Add <code>shadow-xl</code> or <code>drop-shadow-lg</code> to the text for better contrast. You can also darken the image slightly using a semi-transparent black overlay.</p>
+
+  ```html
+  <div class="relative p-5">
+    <img src="/images/card1.jpeg" class="absolute inset-0 w-full h-full object-cover opacity-80" />
+    <div class="absolute inset-0 bg-black/30"></div>
+    <p class="relative text-7xl font-extrabold mix-blend-overlay shadow-2xl">Stunning Design</p>
+  </div>
+<h3 class="text-2xl font-semibold mt-6 mb-2">3. Background Image Not Displaying</h3> <p class="mb-4">If the background image isn't loading, the transparent effect won't work at all. This can happen due to incorrect image paths or missing Tailwind support for arbitrary values.</p> <p class="mb-4">✅ <strong>Fix:</strong> Ensure the file path is correct and that your Tailwind config allows arbitrary values or use custom classes if needed. If using local images, confirm the file is in the right folder relative to your HTML or component file.</p> <h3 class="text-2xl font-semibold mt-6 mb-2">4. Responsive Problems on Smaller Screens</h3> <p class="mb-4">Large transparent text may overflow or become unreadable on mobile screens if you don’t adjust font sizes responsively.</p> <p class="mb-4">✅ <strong>Fix:</strong> Use Tailwind’s responsive font utilities like <code>text-4xl sm:text-6xl lg:text-8xl</code> to scale text based on screen size.</p> <h3 class="text-2xl font-semibold mt-6 mb-2">Final Tip</h3> <p class="mb-4 italic">Always test your design on real devices or in Chrome DevTools. What looks great on desktop might need tweaks on mobile!</p> </article> ```
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

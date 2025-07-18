@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    a {
+      cursor: pointer;
+    }
+
+pre {
+    background: #f1f5f9;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+}
+
+code {
+    font-family: monospace;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+  </style>
+</head>
+
+<body>
+    <article>
+        <h1><strong>How I Fixed 3 Common Glassmorphism Bugs (And How You Can Too!) 🐛</strong></h1>
+        <h2><strong>🔍 Introduction: The Dark Side of Glassmorphism</strong></h2>
+        <p class="ds-markdown-paragraph">Glassmorphism looks stunning, but it comes with&nbsp;<strong>performance
+                quirks, blur issues, and cross-browser headaches</strong>. After building 10+ glassmorphic UIs,
+            here&rsquo;s how I solved the&nbsp;<strong>most frustrating bugs</strong>.</p>
+        <hr />
+        <h2><strong>🐛 Bug #1: Blur Doesn&rsquo;t Work on Some Browsers</strong></h2>
+        <h3><strong>The Problem:</strong></h3>
+        <p class="ds-markdown-paragraph"><code>backdrop-filter</code>&nbsp;isn&rsquo;t supported in&nbsp;<strong>Firefox
+                by default</strong>&nbsp;and fails in some Safari versions.</p>
+        <h3><strong>The Fix:</strong></h3>
+        <div class="md-code-block md-code-block-dark">
+            <div class="md-code-block-banner-wrap">
+                <div class="md-code-block-banner md-code-block-banner-lite">
+                    <div class="_121d384">
+                        <div class="d2a24f03"><span class="d813de27">css</span></div>
+                        <div class="d2a24f03">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <pre><span class="token selector">.glass-element</span> <span class="token punctuation">{</span>
+  <span class="token property">backdrop-filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">-webkit-backdrop-filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Safari */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Fallback for Firefox */</span>
+<span class="token atrule"><span class="token rule">@supports</span> <span class="token keyword">not</span> <span class="token punctuation">(</span><span class="token property">backdrop-filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">.glass-element</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Opaque fallback */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></pre>
+        </div>
+        <hr />
+        <h2><strong>🐛 Bug #2: Text Legibility Issues</strong></h2>
+        <h3><strong>The Problem:</strong></h3>
+        <p class="ds-markdown-paragraph">Text becomes&nbsp;<strong>hard to read</strong>&nbsp;over busy backgrounds.</p>
+        <h3><strong>The Fix:</strong></h3>
+        <ol start="1">
+            <li>
+                <p class="ds-markdown-paragraph"><strong>Add a semi-opaque underlay:</strong></p>
+                <div class="md-code-block md-code-block-dark">
+                    <div class="md-code-block-banner-wrap">
+                        <div class="md-code-block-banner md-code-block-banner-lite">
+                            <div class="_121d384">
+                                <div class="d2a24f03"><span class="d813de27">css</span></div>
+                                <div class="d2a24f03">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre><span class="token selector">.text-container</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Dark underlay */</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></pre>
+                </div>
+            </li>
+            <li>
+                <p class="ds-markdown-paragraph"><strong>Use thicker
+                        fonts</strong>&nbsp;(<code>font-weight: 600</code>).</p>
+            </li>
+        </ol>
+        <hr />
+        <h2><strong>🐛 Bug #3: Performance Lag on Mobile</strong></h2>
+        <h3><strong>The Problem:</strong></h3>
+        <p class="ds-markdown-paragraph">Blur effects&nbsp;<strong>crash low-end phones</strong>.</p>
+        <h3><strong>The Fix:</strong></h3>
+        <ol start="1">
+            <li>
+                <p class="ds-markdown-paragraph"><strong>Reduce blur
+                        intensity</strong>&nbsp;(<code>blur(5px)</code>&nbsp;instead of&nbsp;<code>blur(20px)</code>).
+                </p>
+            </li>
+            <li>
+                <p class="ds-markdown-paragraph"><strong>Disable blur on mobile:</strong></p>
+                <div class="md-code-block md-code-block-dark">
+                    <div class="md-code-block-banner-wrap">
+                        <div class="md-code-block-banner md-code-block-banner-lite">
+                            <div class="_121d384">
+                                <div class="d2a24f03"><span class="d813de27">css</span></div>
+                                <div class="d2a24f03">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">.glass-element</span> <span class="token punctuation">{</span>
+    <span class="token property">backdrop-filter</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></pre>
+                </div>
+            </li>
+            <li>
+                <p class="ds-markdown-paragraph"><strong>Use&nbsp;<code>will-change: transform</code></strong>&nbsp;to
+                    optimize GPU rendering.</p>
+            </li>
+        </ol>
+        <hr />
+        <h2><strong>🚀 Bonus: Debugging Checklist</strong></h2>
+        <p class="ds-markdown-paragraph">✔ Test in&nbsp;<strong>Firefox, Safari, and Chrome</strong><br />✔
+            Use&nbsp;<strong>CSS transitions</strong>&nbsp;instead of JavaScript animations<br />✔
+            Avoid&nbsp;<strong>nested blur effects</strong>&nbsp;(they compound performance costs)</p>
+        <hr />
+        <h2><strong>🎉 Final Thoughts</strong></h2>
+        <p class="ds-markdown-paragraph">Glassmorphism is&nbsp;<strong>worth the effort</strong>&mdash;if you optimize
+            it. Now you know how to&nbsp;<strong>dodge the biggest pitfalls</strong>!</p>
+        <p class="ds-markdown-paragraph"><strong>Which bug frustrated you the most?</strong></p>
+    </article>
+</body>
+
+</html>

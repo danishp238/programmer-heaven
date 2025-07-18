@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.7;
+    padding: 1rem;
+    background-color: #f7fafc;
+    color: #1a202c;
+}
+
+pre {
+    background: #f1f5f9;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+}
+
+code {
+    font-family: monospace;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}

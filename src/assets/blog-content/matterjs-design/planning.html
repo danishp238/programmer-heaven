@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Danny" />
+    <title>Responsive Transparent Text</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-violet-500 to-f
+uchsia-500">
+
+    <main class="px-4 sm:px-8 lg:px-20">
+        <h1 class="text-3xl sm:text-4xl font-bold text-center mt-10 mb-4" data-aos="fade-up">
+            How to Create a Transparent Text Effect with Tailwind CSS
+        </h1>
+        <p class="text-center text-lg sm:text-xl text-white/80 mb-10 max-w-3xl mx-auto" data-aos="fade-up"
+            data-aos-delay="100">
+            This tutorial teaches you how to achieve a beautiful transparent text overlay effect on a background image
+            using Tailwind CSS. It's lightweight, responsive, and perfect for portfolios and hero sections.
+        </p>
+
+        <section
+            class="flex justify-center items-center overflow-hidden min-h-[70vh] mx-auto mt-10 rounded-[2rem] border-4 max-w-[95%] sm:max-w-[90%] lg:max-w-[90%] px-4"
+            data-aos="fade-up" data-aos-delay="200" id="effect">
+        </section>
+
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+
+    <script src="matterjs.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

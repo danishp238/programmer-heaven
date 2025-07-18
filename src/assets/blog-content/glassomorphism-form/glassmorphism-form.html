@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn how to create a modern glassmorphism login form using HTML, Tailwind CSS, and AOS scroll animation. Step-by-step guide for beginners with full source code." />
+  <meta name="keywords"
+    content="glassmorphism login form, tailwind css login form, aos scroll animation, modern html form, responsive form, beginner frontend project, html css animation, stylish login design" />
+  <meta name="author" content="Danny" />
+  <title>Modern Glassmorphism Contact Form</title>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- <link rel="stylesheet" href="glassmorphism-form.css"> -->
+
+  <style>
+
+    a {
+      cursor: pointer;
+    }
+
+pre {
+    background: #f1f5f9;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+}
+
+code {
+    font-family: monospace;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+  </style>
+
+</head>
+
+<body>
+    <article>
+  <h1>Create a Stylish Glassmorphism Login Form with Tailwind CSS & AOS</h1>
+  <p>
+    Welcome to this beginner-friendly frontend tutorial! In this guide, you'll learn how to build a <strong>beautiful glassmorphism-style login form</strong> using <strong>HTML</strong>, <strong>Tailwind CSS</strong>, and <strong>AOS scroll animation</strong>. This modern UI design is not only eye-catching but also responsive and smooth.
+  </p>
+
+  <h2>💡 What Is Glassmorphism?</h2>
+  <p>
+    <strong>Glassmorphism</strong> is a design trend that mimics the look of frosted glass. If you're curious about real-world implementations, check out <a data-router-link="modern-glassmorphism-contact-form-real-world-examples" class="text-blue-400 hover:text-blue-600 underline transition-colors">5 Real-World Websites Using Glassmorphism Design (And Why It Works) 🌐</a>. It features:
+  </p>
+  <ul>
+    <li>A semi-transparent background</li>
+    <li>A blurred backdrop</li>
+    <li>Soft rounded corners</li>
+  </ul>
+  <p>You'll see this effect in apps like macOS, iOS, and modern web UIs.</p>
+
+  <h2>🛠️ Project Requirements</h2>
+  <ul>
+    <li>A simple HTML file</li>
+    <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> via CDN</li>
+    <li><a href="https://michalsnik.github.io/aos/" target="_blank">AOS Library</a> for animation</li>
+    <li>A background image (e.g. <code>bg.jpeg</code>)</li>
+  </ul>
+
+  <h2>🧱 Structure and Code Walkthrough</h2>
+  <h3>1. Page Heading</h3>
+  <pre><code>&lt;h1 class="text-center text-3xl mt-8"&gt;Modern Glassmorphism Contact Form&lt;/h1&gt;</code></pre>
+  <ul>
+    <li><code>text-center</code>: Centers the heading</li>
+    <li><code>text-3xl</code>: Increases font size</li>
+    <li><code>mt-8</code>: Adds top margin</li>
+  </ul>
+
+  <h3>2. Background Container</h3>
+  <pre><code>&lt;div class="flex justify-center items-center h-[80vh] bg-[url('../images/bg.jpeg')] bg-cover bg-center rounded-4xl border-4"&gt;</code></pre>
+  <ul>
+    <li>Flexbox centers the form inside</li>
+    <li><code>bg-[url()]</code> sets background image</li>
+    <li><code>rounded-4xl</code> adds curves</li>
+    <li><code>border-4</code> adds a frame</li>
+  </ul>
+
+  <h3>3. The Form Block</h3>
+  <p>Want to take your form to the next level? Learn how in <a data-router-link="modern-glassmorphism-contact-form-micro-interactions" class="text-purple-400 hover:text-purple-600 underline transition-colors">From Static to Animated: Adding Micro-Interactions to Your Glassmorphism Form ✨</a>.</p>
+  <pre><code>&lt;form class="w-[60%] backdrop-blur-sm p-6 rounded-3xl" data-aos="fade-up"&gt;</code></pre>
+  <ul>
+    <li><code>backdrop-blur-sm</code>: Gives frosted glass effect</li>
+    <li><code>data-aos="fade-up"</code>: Enables scroll animation</li>
+  </ul>
+
+  <h3>4. Input Fields</h3>
+  <pre><code>&lt;input type="text" class="bg-white/25 hover:bg-white/40 p-2 text-xl outline-none"&gt;</code></pre>
+  <ul>
+    <li><code>bg-white/25</code>: Transparent white background</li>
+    <li><code>hover:bg-white/40</code>: More visible on hover</li>
+    <li><code>outline-none</code>: Removes blue focus border</li>
+  </ul>
+
+  <h3>5. Submit Button</h3>
+  <pre><code>&lt;button class="bg-white/25 hover:bg-white/50 p-4 w-1/2 rounded-full text-xl transition delay-50"&gt;Submit&lt;/button&gt;</code></pre>
+
+  <h2>🎞️ Scroll Animation with AOS</h2>
+  <p>
+    AOS (Animate On Scroll) is a lightweight library to animate elements as you scroll down. 
+  </p>
+  <h3>Include the CDN</h3>
+  <pre><code>&lt;link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"&gt; &lt;script src="https://unpkg.com/aos@2.3.1/dist/aos.js"&gt;&lt;/script&gt; &lt;script&gt;AOS.init();&lt;/script&gt; </code></pre>
+
+  <h2>🌟 Why Tailwind CSS?</h2>
+  <p>
+    Tailwind CSS is perfect for beginners. It uses utility-first classes so you don't have to write custom CSS. You just combine pre-built classes to style elements directly in your HTML.
+  </p>
+
+  <h2>📦 Complete Source Code</h2>
+  <pre><code>&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt; &lt;meta charset="UTF-8" /&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt; &lt;title&gt;Glassmorphism Login Form&lt;/title&gt; &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt; &lt;link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"&gt; &lt;/head&gt; &lt;body class="bg-gray-100"&gt; &lt;main&gt; &lt;h1 class="text-center text-xl sm:text-3xl mt-8"&gt; Modern Glassmorphism Contact Form Using HTML & Tailwind CSS &lt;/h1&gt; &lt;div class="flex justify-center items-center h-[80vh] mx-auto mt-10 rounded-4xl bg-[url('../images/bg.jpeg')] bg-cover bg-center border-4"&gt; &lt;form class="w-[60%] backdrop-blur-sm flex flex-col rounded-3xl p-6" data-aos="fade-up"&gt; &lt;h2 class="text-center text-2xl mb-8"&gt;Login Form&lt;/h2&gt; &lt;label class="text-xl"&gt;Name&lt;/label&gt; &lt;input type="text" class="p-2 bg-white/25 hover:bg-white/40 mt-2 text-xl outline-none"&gt; &lt;label class="text-xl mt-4"&gt;Email&lt;/label&gt; &lt;input type="email" class="p-2 bg-white/25 hover:bg-white/40 mt-2 text-xl outline-none"&gt; &lt;label class="text-xl mt-4"&gt;Password&lt;/label&gt; &lt;input type="password" class="p-2 bg-white/25 hover:bg-white/40 mt-2 text-xl outline-none"&gt; &lt;button class="p-4 mt-8 w-1/2 mx-auto rounded-full text-xl bg-white/25 hover:bg-white/50 transition delay-50 ease-in-out"&gt;Submit&lt;/button&gt; &lt;/form&gt; &lt;/div&gt; &lt;/main&gt; &lt;script src="https://unpkg.com/aos@2.3.1/dist/aos.js"&gt;&lt;/script&gt; &lt;script&gt;AOS.init();&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; </code></pre>
+
+  <h2>📢 Final Words</h2>
+  <p>
+    You now have a fully responsive, animated, and modern login form using Tailwind CSS and AOS. You learned about glassmorphism, styling best practices, and how to animate elements on scroll.
+  </p>
+  <p>If you're curious about design alternatives, explore <a data-router-link="modern-glassmorphism-contact-form-neurmorphism-comparison" class="text-indigo-400 hover:text-indigo-600 underline transition-colors">Glassmorphism vs. Neumorphism: Which One Should You Choose? 🧐</a></p>
+  
+  <div class="bg-white/20 p-6 rounded-xl mt-8 backdrop-blur-sm border border-white/30">
+    <h3 class="text-xl font-bold mb-4">🔍 More Glassmorphism Resources</h3>
+    <ul class="space-y-3">
+      <li>• <a data-router-link="modern-glassmorphism-contact-form-bug-fixes" class="text-amber-500 hover:text-amber-700 underline">How I Fixed 3 Common Glassmorphism Bugs (And How You Can Too!) 🐛</a></li>
+      <li>• <a data-router-link="modern-glassmorphism-contact-form-fun-facts" class="text-green-500 hover:text-green-700 underline">Fun Facts About Blur Effects in Web Design (You've Never Heard Of!) 🤯</a></li>
+    </ul>
+  </div>
+</article>
+
+
+
+  </main>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+/* Optional: override default color and size */
+#nprogress .bar {
+  background: #10b981; /* emerald-500 or your brand color */
+  height: 10px;
+}

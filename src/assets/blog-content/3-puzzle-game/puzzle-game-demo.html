@@ -1,0 +1,25 @@
+!<div class="container mx-auto px-4 py-8">
+  <!-- Blog Content (responsive width) -->
+  <div class="text-lg w-full md:w-3/4 lg:w-1/2 mx-auto mb-12" v-html="blog.content" ref="htmlContainer"></div>
+  
+  <!-- Puzzle Game Container -->
+  <div class="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12">
+    <!-- Puzzle Pieces -->
+    <section
+      id="puzzle-pieces"
+      class="grid grid-cols-3 w-full max-w-[90vw] sm:max-w-[75vw] md:max-w-[50vw] lg:max-w-[30vw] aspect-square gap-2 sm:gap-3 md:gap-4"
+    ></section>
+    
+    <!-- Dropzone -->
+    <section
+      id="dropzone"
+      class="grid grid-cols-3 w-full max-w-[90vw] sm:max-w-[75vw] md:max-w-[50vw] lg:max-w-[30vw] aspect-square gap-2 sm:gap-3 md:gap-4"
+    ></section>
+  </div>
+</div>
+
+
+    <div class="text-center relative top-4 sm:bottom-20">
+      <button class="px-6 py-3 bg-emerald-400 text-white rounded-2xl" onclick="location.reload()">Reset &
+        Shuffle</button>
+    </div>
